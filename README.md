@@ -1,21 +1,36 @@
-# Invictaeria — ESP32 Airplane Detection System
+# Invictaeria ESP32 Airplane Detection System
 
 ## Overview
 
-**Invictaeria** is an IoT system built with an ESP32 microcontroller that detects the nearest airplane in real time using the [OpenSky Network API](https://opensky-network.org/), displaying live flight data on an OLED screen.
+**Invictaeria** is an IoT system built with an ESP32 microcontroller that detects the nearest airplane in real time using the [OpenSky Network API](https://opensky-network.org/), displaying live flight data on an OLED screen. Developed as an academic project during the CTeSP in Cybersecurity at [ISTEC](https://istec-porto.pt)(Instituto Superior de Tecnologias Avançadas do Porto), the system demonstrates practical skills in embedded systems, API integration, real-time data processing, and hardware prototyping.
 
-Developed as an academic project during the CTeSP in Cybersecurity at [ISTEC Porto](https://istec-porto.pt) (Instituto Superior de Tecnologias Avançadas do Porto), the system demonstrates practical skills in embedded systems, API integration, real-time data processing, and hardware prototyping.
+## How it works
 
-Full technical reports are available in [Portuguese](docs/Invictaeria_Relatorio_PT.pdf) and [English](docs/Invictaeria_Report_ENG.pdf).
+The device runs a continuous loop: connect to WiFi, determine its own location, query live air traffic data, calculate the nearest aircraft, and render the result on screen, refreshing automatically every 30 seconds.
 
-## How It Works
+### WiFi connection
 
-1. **WiFi Connection** — The ESP32 connects to a configured WiFi network and displays a loading bar on the OLED during the connection process.
-2. **Geolocation** — The device determines its own geographic position using IP-based geolocation APIs.
-3. **Aircraft Detection** — The system queries the OpenSky Network REST API for all aircraft within a configurable radius (~50 km) of the device's location.
-4. **Nearest Aircraft Calculation** — Using the Haversine formula, it calculates the distance to each aircraft and identifies the closest one.
-5. **OLED Display** — Flight data (ICAO24, callsign, latitude, longitude, altitude, velocity, distance, and ground status) is rendered on a 128×64 OLED screen, including a directional heading arrow.
-6. **Auto-Refresh** — Data refreshes every 30 seconds with a countdown timer displayed on screen.
+The ESP32 connects to a configured WiFi network on boot. A loading bar is displayed on the OLED during the connection process, giving visual feedback before any data is fetched.
+
+### Geolocation
+
+Once online, the device determines its own geographic position using IP-based geolocation APIs. This location is used as the centre point for all subsequent aircraft queries.
+
+### Aircraft detection
+
+The system queries the OpenSky Network REST API for all aircraft currently within a configurable radius of approximately 50 km from the device's position. The response includes raw ADS-B data for every tracked aircraft in range.
+
+### Nearest aircraft calculation
+
+Using the Haversine formula, the device calculates the great-circle distance to each aircraft in the response and identifies the closest one. This ensures accurate distance calculation regardless of geographic position.
+
+### OLED display
+
+Flight data is rendered on a 128×64 OLED screen. Each refresh displays the ICAO24 identifier, callsign, latitude, longitude, altitude, velocity, distance, ground status, and a directional heading arrow indicating where the aircraft is relative to the device.
+
+### Auto-refresh
+
+Data refreshes every 30 seconds. A countdown timer is displayed on screen between refreshes so the user knows when the next update will occur.
 
 ## Hardware Components
 
@@ -26,7 +41,7 @@ Full technical reports are available in [Portuguese](docs/Invictaeria_Relatorio_
 | **LED Indicators** | Blue LED (GPIO 2) — WiFi status |
 | **Power** | USB / 3.3V |
 
-### Wiring Diagram
+#### Wiring Diagram
 
 ```
      OLED (SSD1306)           ESP32
