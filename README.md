@@ -113,7 +113,7 @@ This project is licensed under the [MIT License](LICENSE). See [LICENSE](LICENSE
 
 The social preview image used for link cards:
 
-<img src="assets/social-preview.jpg" alt="Invictaeria — ESP32 Airplane Detection System" width="640">
+<img src="assets/social-preview.png" alt="Invictaeria — ESP32 Airplane Detection System" width="640">
 
 ## Badges
 
