@@ -41,21 +41,6 @@ Data refreshes every 30 seconds. A countdown timer is displayed on screen betwee
 | **LED Indicators** | Blue LED (GPIO 2) — WiFi status |
 | **Power** | USB / 3.3V |
 
-#### Wiring Diagram
-
-![ESP32 to OLED SSD1306 Wiring Diagram](diagrams/esp32_oled_wiring_diagram.svg)
-
-## Photos
-
-| | |
-|:---:|:---:|
-| ![Box Construction](imgs/Box%20Construction.jpg) | ![Device Exterior View](imgs/Device%20Exterior%20View.jpg) |
-| Box Construction | Device Exterior View |
-| ![System in Operation](imgs/System%20in%20operation.jpg) | ![Top View Open](imgs/Top%20View%20of%20Components%20with%20Enclosure%20Open.jpg) |
-| System in Operation | Top View (Open) |
-| ![Top View Closed](imgs/Top%20View%20of%20Components%20with%20Enclosure%20Closed.jpg) | ![Top View Open 2](imgs/Top%20View%20of%20Components%20with%20Enclosure%20Open_2.jpg) |
-| Top View (Closed) | Top View (Open 2) |
-
 ## Software Stack
 
 | Technology | Purpose |
@@ -69,14 +54,31 @@ Data refreshes every 30 seconds. A countdown timer is displayed on screen betwee
 
 ## Dependencies
 
-The following Arduino libraries are required:
+The following Arduino libraries are required. All are available via the Arduino Library Manager or the links provided.
 
-- `WiFi.h` — ESP32 WiFi connectivity
-- `HTTPClient.h` — HTTP requests to REST APIs
-- `ArduinoJson.h` — JSON deserialization
-- `Wire.h` — I²C communication
-- `Adafruit_GFX.h` — Graphics base library
-- `Adafruit_SSD1306.h` — SSD1306 OLED driver
+| Library | Source | Purpose |
+|---------|--------|---------|
+| WiFi.h | Built-in (ESP32 core) | WiFi connectivity |
+| HTTPClient.h | Built-in (ESP32 core) | HTTP requests to REST APIs |
+| ArduinoJson.h | [ArduinoJson](https://arduinojson.org) | JSON deserialization |
+| Wire.h | Built-in (ESP32 core) | I²C communication protocol |
+| Adafruit_GFX.h | [Adafruit GFX Library](https://github.com/adafruit/Adafruit-GFX-Library) | Graphics primitives |
+| Adafruit_SSD1306.h | [Adafruit SSD1306](https://github.com/adafruit/Adafruit_SSD1306) | OLED display driver |
+
+## Wiring Diagram
+
+![ESP32 to OLED SSD1306 Wiring Diagram](diagrams/esp32_oled_wiring_diagram.svg)
+
+## Photos
+
+| | |
+|:---:|:---:|
+| ![Box Construction](imgs/Box%20Construction.jpg) | ![Device Exterior View](imgs/Device%20Exterior%20View.jpg) |
+| Box Construction | Device Exterior View |
+| ![System in Operation](imgs/System%20in%20operation.jpg) | ![Top View Open](imgs/Top%20View%20of%20Components%20with%20Enclosure%20Open.jpg) |
+| System in Operation | Top View (Open) |
+| ![Top View Closed](imgs/Top%20View%20of%20Components%20with%20Enclosure%20Closed.jpg) | ![Top View Open 2](imgs/Top%20View%20of%20Components%20with%20Enclosure%20Open_2.jpg) |
+| Top View (Closed) | Top View (Open 2) |
 
 ## Source Files
 
