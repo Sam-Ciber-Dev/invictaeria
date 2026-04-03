@@ -1,0 +1,26 @@
+# ——— OS/Editor ———
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# ——— Temp/Logs ———
+*.log
+tmp/
+temp/
+.cache/
+
+# ——— Build artifacts ———
+build/
+.pio/
+.pioenvs/
+.piolibdeps/
+
+# ——— Original .docx files (keep PDFs only) ———
+*.docx
+
+# ——— Secrets ———
+.env
+*.key
+*.pem
