@@ -28,15 +28,7 @@ Full technical reports are available in [Portuguese](docs/Invictaeria_Relatorio_
 
 ### Wiring Diagram
 
-```
-     OLED (SSD1306)           ESP32
-   ┌──────────────┐       ┌────────┐
-   │  GND  (1) ───────────▶ GND     │
-   │  VCC  (2) ───────────▶ 3.3V    │
-   │  SCL  (3) ───────────▶ GPIO22  │
-   │  SDA  (4) ───────────▶ GPIO21  │
-   └──────────────┘        └────────┘
-```
+![ESP32 to OLED SSD1306 Wiring Diagram](diagrams/esp32_oled_wiring_diagram.svg)
 
 ## Photos
 
@@ -89,7 +81,7 @@ The following Arduino libraries are required:
   - Invictaeria_Relatorio_PT.pdf — full report (Portuguese)
 - diagrams/
   - invictaeria_uml_class_diagram.svg — UML class diagram
-  - wiring_oled_esp32.txt — OLED to ESP32 wiring reference
+  - esp32_oled_wiring_diagram.svg — OLED to ESP32 wiring diagram
 - src/
   - final.ino — final firmware version
   - projetoESPFuncional.ino — functional firmware version
